@@ -5,7 +5,7 @@ With the release of iOS 6, Apple made great strides towards offering a powerful,
 
 ![image](http://www.crashlytics.com/blog/wp-content/uploads/2012/03/SecureUDID.png)
 
-####What is SecureUDID?
+#### What is SecureUDID?
 SecureUDID is an open-source sandboxed device identifier solution aimed at solving the main privacy issues that caused Apple to deprecate UDIDs.
 
 SecureUDIDs have the following attributes:
@@ -16,7 +16,7 @@ SecureUDIDs have the following attributes:
 
 3. End-users can globally opt-out of SecureUDID collection across all applications and services that use it.
 
-####How do I use it?
+#### How do I use it?
 
     #import "SecureUDID.h"
 
@@ -26,12 +26,12 @@ SecureUDIDs have the following attributes:
     // The returned identifier is a 36 character (128 byte + 4 dashes) string that is unique for that domain, key, and device tuple.
 
 
-####FAQ
+#### FAQ
 
-#####Who is behind SecureUDID?
+##### Who is behind SecureUDID?
 The team at Crashlytics needed to address the UDID situation while still adhering to privacy concerns. Crashlytics wanted to contribute this back to the community.
 
-#####Is this a true UDID replacement?
+##### Is this a true UDID replacement?
 SecureUDID has two properties that you should know about before you use it.  First, as indicated above, the identifier is not derived from hardware attributes.  Second, the persistence of an identifier cannot be guaranteed in all situations.  This means that, while unlikely, it is technically possible for two distinct devices to report the same identifier, and for the same device to report different identifiers.  Consider this carefully in your application.  Here is a list of situations where this identifier will not exhibit the uniqueness/persistence of a traditional UDID.
 
 - The user has opted-out of the SecureUDID system, in which case you will receive a well-formed string of zeroes.
@@ -40,19 +40,19 @@ SecureUDID has two properties that you should know about before you use it.  Fir
 - The SecureUDID backing store becomes corrupt.
 - All SecureUDID applications are uninstalled from a device, followed by a UIPasteboard data purge.
 
-#####What about OpenUDID?
+##### What about OpenUDID?
 AppsFire unveiled OpenUDID back in September as one of the initial responses to Apple's deprecation of UDIDs and our very own Sam Robbins was its second contributor. Since then, we've spent time outlining what would make a more secure UDID, and the changes required turned out to be significant. Establishing a single identifier per device is fundamentally no different than a MAC address or Apple's UDID - the privacy concerns are the same.
 
-#####Can I use SecureUDID with other UDID frameworks, including OpenUDID?
+##### Can I use SecureUDID with other UDID frameworks, including OpenUDID?
 Yes, SecureUDID does not conflict with any other UDID implementation or framework.
 
-#####What about Android?
+##### What about Android?
 We chose to initially implement SecureUDID on iOS, but the concepts can be applied equally to Android, Windows Phone, and other platforms. We welcome contributions!
 
-#####How can I get involved?
+##### How can I get involved?
 Fork the crashlytics/secureudid project on GitHub, file issues, implement fixes, and submit pull requests!
 
-#####Version History
+##### Version History
 
 May 1, 2012 - 1.1.1
 - Corrected use of availability macros
